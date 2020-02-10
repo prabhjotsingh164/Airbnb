@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="banner_container">
+    <img src="images/hotelroom.png" alt="" class="banner">
+    
+    <ul class="headings">
+        <li>Our diverse global community makes Airbnb possible</li>
+        <li>Building an inclusive platform for all hosts and guests is our greatest goal, and we're always working to improve it</li>
+        <li>Our hosts and guests are leading the way</li>
+        <li>We believe in supporting change through partnerships both inside and outside of Airbnb</li>
+    </ul>
+    
+    
+    
+    </div>
+    
+    <div class="form">
+        <h2>Find places to stay in toronto on Airbnb</h2>
+        <label for="where">WHERE</label><br>
+        <select name="where" id= "where">
+            <option value="toronto">Toronto</option>
+            <option value="brampton">Brampton</option>
+            <option value="mississauga">Mississauga</option>
+            <option value="etobicoke">Etobicoke</option>
+            <option value="vaughn">Vaughn</option>
+            <option value="north york">North york</option>
+            
+        </select>
+
+        <label for="checkin">CHECK-IN</label>
+        <label for="checkout" class="chkout">CHECKOUT</label><br>
+        <input type="date" id="checkin">
+        <input type="date" id="checkout"><br>
+
+        <label for="adults">ADULTS</label>
+        <label for="children" id="children">CHILDREN</label><br>
+        <select name="adults" class="adult">
+            <option value="1">1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+            <option value="6">6 Adults</option>
+            <option value="7">7 Adults</option>
+            
+        </select>
+        
+
+        
+        <select name="children" class="children">
+            <option value="0">0 Children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+            <option value="5">5 Children</option>
+            <option value="6">6 Children</option>
+            
+        </select><br>
+        <input type="button" value="Submit" class="submit">
+
+    </div>
+
+    <div class="info_section">
+        <p>What is Airbnb ?</p>
+        <div class="video">
+        <video class="player" controls loop >
+            <source src="video/Airbnb.mp4" type="video/mp4">
+        </video>
+        </div>
+        <p>Top Rated Experiences</p>
+        <div id="exp">
+
+        </div>
+
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+ <script src="js/exp.js"></script>   
+</body>
+</html>
