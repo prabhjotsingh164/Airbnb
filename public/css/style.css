@@ -9,6 +9,12 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     
 }
+.logo
+{
+    width:2em;
+    height:2em;
+}
+
 label
 {
     font-size: 1.5em;
@@ -557,7 +563,7 @@ list-style: none;
 .form
 {
     position: absolute;
-    top: 55%;
+    top: 60%;
     left: 20%;
 }
 .headings
@@ -585,13 +591,13 @@ list-style: none;
     transform: scale(0.9,0.9);
     
     position: absolute;
-    top: 12%;
+    top: 17%;
     left: 1.5%;
 }
 .headings
 {
     position: absolute;
-    top: 11.5%;
+    top: 15%;
     left: 40%;
     transform: scale(0.8,0.8);
 }
@@ -620,13 +626,13 @@ list-style: none;
     transform: scale(0.7,0.7);
     
     position: absolute;
-    top: 5%;
+    top: 8%;
     left: -7%;
 }
 .headings
     {
         position: absolute;
-        top: 9%;
+        top: 12%;
         left: 30%;
         
     }
@@ -664,14 +670,14 @@ list-style: none;
     transform: scale(0.5,0.5);
     
     position: absolute;
-    top: -1%;
+    top: 2%;
     left:-10%
     
 }
 .headings
     {
         position: absolute;
-        top: 4%;
+        top: 10%;
         left: 15%;
         transform: scale(0.5,0.5);
         
@@ -716,7 +722,7 @@ list-style: none;
                 .headings
                 {
                     position: absolute;
-                    top: -4%;
+                    top: -1%;
                     left: 30%;
                     
                     
@@ -764,7 +770,7 @@ list-style: none;
     transform: scale(0.370,0.370);
     
     position: absolute;
-    top: -7.5%;
+    top: -5%;
     left:-20%
     
 }
@@ -854,9 +860,27 @@ list-style: none;
        
         margin-left: 3em;
       }
+      .nav 
+{
+ display: none;
+}
+.nl
+{
+    display: block;
+}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
       
+    .form
+    {
+        position: absolute;
+        top: -16%;   
+    }
+
+
 
 }
+
 @media screen and (max-width: 382px) {
     .exp {
            
@@ -896,29 +920,20 @@ list-style: none;
       .form
     {
      position: absolute;
-    top: -7%;
+    top: -16%;
 }
 
 }
 
 @media screen and (max-width: 346px) {
-    .nav 
-{
- display: none;
-}
-.nl
-{
-    display: block;
-}
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    
 
 .form
 {
     
     
     position: absolute;
-    top: -14%;
+    top: -16%;
     
 }
 
