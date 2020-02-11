@@ -551,6 +551,7 @@ list-style: none;
     #rooms
     {
        grid-template-columns: 2fr 2fr;
+       grid-gap: 1em;
 
     }
    
@@ -874,7 +875,7 @@ list-style: none;
     .form
     {
         position: absolute;
-        top: -16%;   
+        top: -14.5%;   
     }
 
 
@@ -920,7 +921,7 @@ list-style: none;
       .form
     {
      position: absolute;
-    top: -16%;
+    top: -15%;
 }
 
 }
@@ -933,7 +934,7 @@ list-style: none;
     
     
     position: absolute;
-    top: -16%;
+    top: -14.5%;
     
 }
 
