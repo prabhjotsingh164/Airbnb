@@ -144,6 +144,11 @@ app.post("/signup",(req,res)=>{
   {
       errors.push("enter the last name")
   }
+  if(req.body.mobile=="")
+  {
+    errors.push("Sorry, you must enter your mobile number");
+
+  }
 
 
   if(errors.length > 0)
@@ -160,7 +165,7 @@ app.post("/signup",(req,res)=>{
 
     const mailOptions = {
         from: 'mig1994.prabh@gmail.com',
-        to: 'mig1994.prabh@gmail.com',
+        to: `${req.body.email}`,
         subject: 'Welcome to Airbnb',
         text: 'Welcome to Airbnb. Hope you find the best room you are looking for. Enjoy'
       };
@@ -176,7 +181,7 @@ app.post("/signup",(req,res)=>{
       .create({
          body: `Welcome ${req.body.first_name} ${req.body.last_name} to Airbnb. Hope you find what you are looking for.`,
          from: '+12078020196',
-         to: `+14373881668`
+         to: `${req.body.mobile}`
        })
       .then(message => {
         console.log(message.sid);
