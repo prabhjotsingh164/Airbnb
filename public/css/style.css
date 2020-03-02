@@ -198,7 +198,7 @@ input[type=text], input[type=password] {
     font-size: 2em;
     color: white;
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 60%;
     transform: translate(-50%, -50%);
 }
@@ -218,7 +218,7 @@ input[type=text], input[type=password] {
     border-radius: 0.5em;
     background-color: lightgray;
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 15%;
     transform: translate(-50%, -50%);
     opacity: 0.90;
@@ -298,6 +298,17 @@ input[type=text], input[type=password] {
 }
 
 #exp
+{
+    
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-gap:1em;
+    width:auto;
+    
+    resize:horizontal;
+    object-fit: contain;
+}
+#featured_rooms
 {
     
     display: grid;
@@ -544,12 +555,7 @@ list-style: none;
 
  
 @media screen and (max-width: 1448px) {
-    .form
-    {
-        position: absolute;
-        top: 55%;
-        left: 20%;
-    }    
+        
     .headings
 {
     position: absolute;
@@ -574,10 +580,14 @@ list-style: none;
     
     
 }
+#featured_rooms
+{
+    grid-template-columns: 2fr 2fr ;
+}
 .form
 {
     position: absolute;
-    top: 60%;
+    top: 52.5%;
     left: 20%;
 }
 .headings
@@ -605,7 +615,7 @@ list-style: none;
     transform: scale(0.9,0.9);
     
     position: absolute;
-    top: 17%;
+    top: 14%;
     left: 1.5%;
 }
 .headings
@@ -674,6 +684,10 @@ list-style: none;
        grid-template-columns: 2fr;
 
     }
+#featured_rooms
+{
+    grid-template-columns: 2fr ;
+}
 .banner
 {
     height: 15em ;
@@ -699,21 +713,12 @@ list-style: none;
 
 
 }
-@media screen and (max-width: 880px) {
-    .headings
-    {
-        position: absolute;
-        top: 3%;
-        
-        
-    }
-
-    }
 
     @media screen and (max-width: 880px) {
         .headings
         {
             position: absolute;
+            top: 3%;
             left: 20%;
             
             
@@ -784,14 +789,14 @@ list-style: none;
     transform: scale(0.370,0.370);
     
     position: absolute;
-    top: -5%;
+    top: -4.5%;
     left:-20%
     
 }
 .headings
 {
     position: absolute;
-    top: -7%;
+    top: -5%;
     left: 15%;
     transform: scale(0.3,0.3);
     
