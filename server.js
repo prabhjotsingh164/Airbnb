@@ -113,7 +113,7 @@ app.post("/login",(req,res)=>{
         res.render("welcome");
       })
       .catch((err)=>{
-          console.log(`Error ${err}`);
+          console.log(`Eror ${err}`);
       })
       
   }
