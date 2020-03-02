@@ -56,8 +56,8 @@ app.get("/welcome",(req,res)=>{
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'mig1994.prabh@gmail.com',
-      pass: '1994fengles!'
+      user: 'singh19m94@gmail.com',
+      pass: 'fengles1994!'
     }
   });
 app.post("/login",(req,res)=>{
