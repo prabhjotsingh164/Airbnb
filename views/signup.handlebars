@@ -1,0 +1,38 @@
+<h1 class="signup_heading">Signup for Best Experience</h1>
+{{#each messages}}
+
+    <div class="errors">{{this}}</div>
+
+{{/each}}
+
+
+      <form method="POST" action="/signup">
+       
+
+        <div class="container">
+          <p id="signup_links">Sign up with <a href="http://www.facebook.com">Facebook</a> or <a
+              href="http://www.gmail.com">Google</a></p>
+          <p id="or">or</p>
+          <input type="text" placeholder="Email address" name="email">
+
+          <input type="text" placeholder="First name" name="first_name">
+
+          <input type="text" placeholder="Last name" name="last_name">
+
+          <input type="password" placeholder="Create a password" name="password">
+
+          <label for="psw"><b>Birthday</b></label>
+          <p>To sign up, you need to be at least 18. Other people who use Airbnb won’t see your birthday.</p>
+          <input type="date" id="bday">
+          <p>We’ll send you marketing promotions, special offers, inspiration, and policy updates via email.</p>
+          <button type="submit">Signup</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    

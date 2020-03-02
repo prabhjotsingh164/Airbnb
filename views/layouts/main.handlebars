@@ -20,11 +20,12 @@
         <li><img src="images/logo1.png" alt="" class="logo"></li>
         <li><a href="/">Home</a></li>
         <li><a href="/room-listing">Room Listing</a></li>
-        <li><a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
+        {{!-- <li><a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
         </li>
         <li><a href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</a>
-        </li>
-
+        </li> --}}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
       </ul>
 
 
@@ -48,7 +49,7 @@
 
     <div id="id01" class="modal">
 
-      <form class="modal-content animate" name="myForm" onsubmit="return validateForm()" action="/room-listing">
+      <form class="modal-content animate" name="myForm" onsubmit="return validateForm()" action="/welcome">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       
@@ -77,7 +78,7 @@
 
     <div id="id02" class="modal">
 
-      <form class="modal-content animate">
+      <form class="modal-content animate" action="/welcome">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
