@@ -1,36 +1,30 @@
 const express =require('express')
 const router = express.Router();
 router.get("/",(req,res)=>{
-    res.render("index",{
+    res.render("general/index",{
         title:"Home",
         headinginfo: "Home Page",
         randomContent:"AAAAAAAAAAAAA"
     })
     });
     
-    router.get("/room-listing",(req,res)=>{
-        res.render("roomlisting",{
-            title:"Room Listings",
-            headinginfo: "Room Listing",
-            
-        })
-    });
+    
     router.get("/signup",(req,res)=>{
-        res.render("signup",{
+        res.render("general/signup",{
             title:"Signup",
             headinginfo: "Signup",
             
         })
     });
     router.get("/login",(req,res)=>{
-        res.render("login",{
+        res.render("general/login",{
             title:"Login",
             headinginfo: "Login",
             
         })
     });
     router.get("/welcome",(req,res)=>{
-        res.render("welcome",{
+        res.render("general/welcome",{
             title:"Welcome",
             headinginfo: "Welcome",
             
