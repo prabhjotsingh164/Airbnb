@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const productModel = require("./models/products");
 const app = express();
 
 
