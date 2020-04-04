@@ -2,15 +2,18 @@ const express = require("express");
 const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const productModel = require("./models/exp");
 const app = express();
 
 
 //This allows express to make staic content available from the public
-app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static('public'));
+
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+const roomController = require("./controllers/rooms");
 //This tells express to set and register handlebars as its template/viewengine
 app.get("/",(req,res)=>{
 res.render("index",{
@@ -19,14 +22,14 @@ res.render("index",{
     randomContent:"AAAAAAAAAAAAA"
 })
 });
-
-app.get("/room-listing",(req,res)=>{
-    res.render("roomlisting",{
-        title:"Room Listings",
-        headinginfo: "Room Listing",
+app.use("/room-listing",roomController);
+// app.get("/room-listing",(req,res)=>{
+//     res.render("roomlisting",{
+//         title:"Room Listings",
+//         headinginfo: "Room Listing",
         
-    })
-});
+//     })
+// });
 app.get("/signup",(req,res)=>{
     res.render("signup",{
         title:"Signup",

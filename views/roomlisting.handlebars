@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+      <link rel="stylesheet" href="/css/style.css">
+    <title>{{title}}</title>
 </head>
 <body>
   <h1 class="roomListingTitle">Our Rooms</h1>  
-   <div id="rooms">
+   {{!-- <div id="rooms">
                
                 
-    </div>
-<script src="js/index.js"></script>
+    </div> --}}
+  <div id="rooms">  
+{{#each rooms}}
+    
+<article class="room">
+        <p>
+            Title:{{this.title}}
+        </p>
+        <p>
+            Price:{{this.price}}
+        </p>
+        <p>
+            Description{{this.description}}
+        </p>
+    
+</article>
+
+{{/each}}
+</div>
+{{!-- <article class="room">
+        <img src="${room.image}" alt="" id="roomImage"> 
+        <p id="roomTitle">${room.name}</p>
+        <p id="roomDescription">${room.guests} guests - ${room.bedroom} bedroom - ${room.number_of_beds} bed - ${room.bathroom} bathroom - ${room.kitchen} - ${room.wifi} - ${room.parking}</p>
+        <p id="roomPrice">Price:<strong>$${room.price}</strong> per night</p></strong> 
+        
+        </article> --}}
+
+
+
+
 
 </body>
 </html>
