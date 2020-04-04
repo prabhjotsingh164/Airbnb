@@ -1,5 +1,11 @@
-const allRooms = [
-    { // 0
+const feature_rooms =
+{
+
+fakeDB:[],
+init()
+{
+    
+     this.fakeDB.push({ // 0
         id:1,
         image: `./images/featured_room1.jpg`,
         name: `The Garden Quarter`,
@@ -13,9 +19,9 @@ const allRooms = [
         price: `20`
         
 
-    }, {
+    });
 
-        // 1
+    this.fakeDB.push({ // 0
         id:2,
         image: `./images/featured_room2.jpg`,
         name: `La Salentina`,
@@ -27,11 +33,10 @@ const allRooms = [
         wifi:`Wifi`,
         parking:`Free Parking`,
         price: `30`
-        
 
-    }, {
+    });
 
-        // 2
+    this.fakeDB.push({ // 0
         id:3,
         image: `./images/featured_room3.jpg`,
         name: `Private 5 Star`,
@@ -42,12 +47,10 @@ const allRooms = [
         kitchen:`Kitchen`,
         wifi:`Wifi`,
         parking:`Free Parking`,
-        price: `20`
+        price: `20`        
 
-    }
-    , {
-
-        // 3
+    });
+    this.fakeDB.push({ // 0
         id:4,
         image: `./images/featured_room4.jpg`,
         name: `Hidden Gem of Toronto`,
@@ -59,22 +62,14 @@ const allRooms = [
         wifi:`Wifi`,
         parking:`Free Parking`,
         price: `20`
+    });
+    
+},
+getAllFeatureRooms()
+{
+return this.fakeDB;
+}
 
-    }];
-    
-
-    function getRoomsAsHtmlString(room) {
-        return `
-        <article class="room">
-        <img src="${room.image}" alt="" id="roomImage"> 
-        <p id="roomTitle">${room.name}</p>
-        <p id="roomDescription">${room.guests} guests - ${room.bedroom} bedroom - ${room.number_of_beds} bed - ${room.bathroom} bathroom - ${room.kitchen} - ${room.wifi} - ${room.parking}</p>
-        <p id="roomPrice">Price:<strong>$${room.price}</strong> per night</p></strong> 
-        
-        </article>
-    `;
-    }
-    document.getElementById('featured_rooms').innerHTML = allRooms.map(getRoomsAsHtmlString).join('\n');
-    
-    
-   
+}
+feature_rooms.init();
+module.exports=feature_rooms;

@@ -16,15 +16,10 @@
 {{#each rooms}}
     
 <article class="room">
-        <p>
-            Title:{{this.title}}
-        </p>
-        <p>
-            Price:{{this.price}}
-        </p>
-        <p>
-            Description{{this.description}}
-        </p>
+        <img src="http://localhost:3000/{{this.image}}" alt="" id="roomImage"> 
+        <p id="roomTitle">{{this.name}}</p>
+        <p id="roomDescription">{{this.guests}} guests - {{this.bedroom}} bedroom - {{this.number_of_beds}} bed - {{this.bathroom}} bathroom - {{this.kitchen}} - {{this.wifi}} - {{this.parking}}</p>
+        <p id="roomPrice">Price:<strong>{{this.price}}</strong> per night</p></strong>
     
 </article>
 
