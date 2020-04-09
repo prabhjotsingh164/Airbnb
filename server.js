@@ -1,7 +1,11 @@
 const express = require("express");
 const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+const mongoose = require('mongoose');
+
+require("dotenv").config({path:'./config/keys.env'});
+
+
 const app = express();
 
 
@@ -19,13 +23,7 @@ const loginController = require("./controllers/login");
 const signupController = require("./controllers/signup");
 const welcomeController = require("./controllers/welcome");
 //This tells express to set and register handlebars as its template/viewengine
-// app.get("/",(req,res)=>{
-// res.render("index",{
-//     title:"Home",
-//     headinginfo: "Home Page",
-//     randomContent:"AAAAAAAAAAAAA"
-// })
-// });
+
 app.use("/",indexController);
 app.use("/room-listing",roomController);
 app.use("/login",loginController);
@@ -35,20 +33,18 @@ app.use("/welcome",welcomeController);
 
 
 
-// app.get("/welcome",(req,res)=>{
-//     res.render("welcome",{
-//         title:"Welcome",
-//         headinginfo: "Welcome",
-        
-//     })
-// });
+
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING , {useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>{
+    console.log(`Connected to MongoDB Database`);
+})
+.catch(err=>console.log(`Error occured when connecting to database ${err}`));
 
 
 
 
 
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT,()=>{
 console.log(`web serve is up and running`);
 })
