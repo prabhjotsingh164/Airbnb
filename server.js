@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 require("dotenv").config({path:'./config/keys.env'});
 
@@ -22,13 +23,36 @@ const roomController = require("./controllers/rooms");
 const loginController = require("./controllers/login");
 const signupController = require("./controllers/signup");
 const welcomeController = require("./controllers/welcome");
+const adminController = require("./controllers/admin");
 //This tells express to set and register handlebars as its template/viewengine
+
+
+
+
+
+
+app.use(session({
+    secret: `${process.env.SECRET_KEY}`,
+    resave: false,
+    saveUninitialized: true,
+    
+  }))
+
+  app.use((req,res,next)=>{
+      
+    res.locals.user = req.session.userInfo;
+    
+    
+    next();
+  })
+
 
 app.use("/",indexController);
 app.use("/room-listing",roomController);
 app.use("/login",loginController);
 app.use("/signup",signupController);
 app.use("/welcome",welcomeController);
+app.use("/admin",adminController);
 
 
 

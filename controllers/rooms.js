@@ -4,6 +4,9 @@ const router = express.Router();
 const roomsModel= require("../models/rooms");
 
 
+
+
+
 router.get("/list",(req,res)=>{
     res.render("roomlisting",{
         title:"Room Listings",
