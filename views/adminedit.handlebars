@@ -1,0 +1,31 @@
+<h1>Update Room Details</h1>
+{{#each messages}}
+
+    <div class="errors">{{this}}</div>
+
+{{/each}}
+
+
+      <form method="POST" action="/admin/update/{{_id}}?method=PUT" enctype="multipart/form-data">
+       
+
+        <div class="container">
+          
+          <input type="text" placeholder="Room Title" name="title" value="{{title}}">
+
+          <input type="text" placeholder="Description" name="description" value="{{this.description}}">
+
+          <input type="text" placeholder="Price Per Night" name="price" value="{{this.price}}">
+
+          <input type="text" placeholder="Location" name="location" value="{{this.location}}">
+            
+          {{!-- <p>Upload Room Image:-</p>
+          <input type="file" name="roomimage" id="roomimage" value="{{this.roomimage}}"> --}}
+          
+          <button type="submit">Update Room</button>
+          
+        </div>
+
+       
+      </form>
+    

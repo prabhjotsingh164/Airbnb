@@ -8,18 +8,29 @@
 </head>
 <body>
   <h1 class="roomListingTitle">Our Rooms</h1>  
-   {{!-- <div id="rooms">
-               
+    <form method="POST" action="/room-listing/search" class="searchForm">
+        <label>Search By</label>
+        <select name="room_search">
+                <option value="all">All</option>
+                <option value="toronto">Toronto</option>
+                <option value="brampton">Brampton</option>
+                <option value="lakeshore">Lakeshore</option>
+                <option value="vaughn">Vaughn</option>
                 
-    </div> --}}
+        </select>
+        <input type="submit" value="Search">
+     </form>
   <div id="rooms">  
-{{#each rooms}}
+{{#each data}}
     
 <article class="room">
-        <img src="http://localhost:3000/{{this.image}}" alt="" id="roomImage"> 
-        <p id="roomTitle">{{this.name}}</p>
-        <p id="roomDescription">{{this.guests}} guests - {{this.bedroom}} bedroom - {{this.number_of_beds}} bed - {{this.bathroom}} bathroom - {{this.kitchen}} - {{this.wifi}} - {{this.parking}}</p>
+        <img src="/uploads/{{this.roomimage}}" alt="" id="roomImage"> 
+        <p id="roomTitle">{{this.title}}</p>
+        <p id="roomDescription">{{this.description}} </p>
         <p id="roomPrice">Price:<strong>{{this.price}}</strong> per night</p></strong>
+        <p id="roomLocation">Location:{{this.location}}</p>
+        <a href="/room-listing/add/{{this.id}}" class="update">Book Room</a>
+        
     
 </article>
 

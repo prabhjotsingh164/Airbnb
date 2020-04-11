@@ -1,4 +1,32 @@
-<h1>Welcome Admin</h1>
-<ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="admin_title">Welcome Admin</h1>
+<ul class="admin_op">
     <li><a href="/admin/add">Add room</a></li>
 </ul>
+  <div id="rooms">  
+{{#each data}}
+    
+<article class="room">
+        <img src="/uploads/{{this.roomimage}}" alt="" id="roomImage"> 
+        <p id="roomTitle">{{this.title}}</p>
+        <p id="roomDescription">{{this.description}} </p>
+        <p id="roomPrice">Price:<strong>{{this.price}}</strong> per night</p></strong>
+        <p id="roomLocation">Location:{{this.location}}</p>
+        <a href="/admin/edit/{{this.id}}" class="update">Update Room</a>
+        <a href="/admin/delete/{{this.id}}?method=DELETE" class="delete">Delete Room</a>
+    
+</article>
+
+{{/each}}
+</div>
+    
+</body>
+</html>

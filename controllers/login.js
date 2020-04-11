@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userModel = require("../models/signup");
+const roomModel = require("../models/addroom");
 const bcrypt = require("bcryptjs");
 const isAuth  = require("../middleware/auth");
 const isAuthor  = require("../middleware/author");
@@ -36,6 +37,7 @@ router.post("/log",(req,res)=>{
 
     else
     {
+      
       bcrypt.compare(req.body.psw, user.password)
       .then(isMatched=>{
         if(isMatched)
@@ -68,13 +70,7 @@ router.get("/welcome",isAuth,(req,res)=>{
       
   })
 });
-router.get("/admin",(req,res)=>{
-  res.render("admin",{
-      title:"admin",
-      headinginfo: "admin",
-      
-  })
-});
+
 
 router.get("/out",(req,res)=>
 {

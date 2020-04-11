@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 const session = require('express-session');
 
 require("dotenv").config({path:'./config/keys.env'});
@@ -45,6 +46,20 @@ app.use(session({
     
     next();
   })
+
+app.use(fileUpload());
+
+app.use((req,res,next)=>{
+  if(req.query.method=="PUT")
+  {
+      req.method="PUT"
+  }
+  else if(req.query.method=="DELETE")
+  {
+      req.method ="DELETE"
+  }
+  next();
+});
 
 
 app.use("/",indexController);

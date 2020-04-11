@@ -2,7 +2,8 @@ const isAdmin = (req,res,next)=>
 {
     if(req.session.userInfo.type=="admin")
     {
-        res.redirect("admin");
+        
+        res.redirect("/admin/adm");
     }
     else
     {
