@@ -1,0 +1,35 @@
+<h1>Room Description Page</h1>
+
+
+      <form method="POST" action="/room-listing/book/{{_id}}" enctype="multipart/form-data">
+       
+
+        <div class="container">
+            
+           <label>Title:-</label><br>
+          <input type="text" placeholder="Room Title" name="title" value="{{title}}" readonly>
+
+          <label>Description:-</label><br>
+          <input type="text" placeholder="Description" name="description" value="{{this.description}}" readonly>
+
+         <label>Price per night:-</label><br>
+          <input type="text" placeholder="Price Per Night" name="price" value="{{this.price}}" readonly>
+
+          <label>Location:-</label><br>
+          <input type="text" placeholder="Location" name="location" value="{{this.location}}" readonly>
+            
+            <label>From:-</label><br>
+            <input type="date" id="bday" name="from"><br>
+
+            <label>To:-</label><br>
+            <input type="date" id="bday" name="to">
+          {{!-- <p>Upload Room Image:-</p>
+          <input type="file" name="roomimage" id="roomimage" value="{{this.roomimage}}"> --}}
+          <img src="/uploads/{{this.roomimage}}" alt="" id="roomImage">
+          <button type="submit">Book Room</button>
+          
+        </div>
+
+       
+      </form>
+    

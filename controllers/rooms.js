@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const roomModel = require("../models/addroom");
+const broomModel =require("../models/bookroom");
 //const roomsModel= require("../models/rooms");
 
 
@@ -9,7 +10,7 @@ const roomModel = require("../models/addroom");
 
 
 router.get("/list",(req,res)=>{
-    roomModel.find({location:"toronto"})
+    roomModel.find()
     .then((rooms)=>{
         const filteredRoom = rooms.map(room=>{
   
@@ -91,9 +92,51 @@ router.post("/search",(req,res)=>{
     
 })
 
+router.get("/add/:id",(req,res)=>{
+    roomModel.findById(req.params.id)
+    .then((task)=>{
+        const {_id,title,description,price,location,roomimage}=task;
+        res.render("roomdescription",{
+            _id,
+            title,
+            description,
+            price,
+            location,
+            roomimage
+            
+        })
+    })
+    .catch(err=>console.log(`Error happened when pulling from the database: ${err}`));
+  })
+
+  router.post("/book/:id",(req,res)=>{
+  
+    const newBookedRoom = {
+        userId:req.session.userInfo._id,
+      roomId:req.params.id,
+        title: req.body.title,
+      description:req.body.description,
+      price:req.body.price,
+      location:req.body.location,
+      roomimgae:req.body.roomimage,
+      from:req.body.from,
+      to:req.body.to
+  
+
+    }
+    const user = new broomModel(newBookedRoom);
+      user.save()
+    .then(()=>
+      {
+    res.render("welcome");
+    })
+      .catch(err=>console.log(`Error happened when inserting in the database :${err}`));
 
 
-
+    
+    
+ 
+});
 
 
 
