@@ -80,7 +80,7 @@
         </div>
         <p>Top Rated Experiences</p>
         <div id="exp">
-            {{#each exps}}
+            {{#each data1}}
 
             <article class="exp">
     <img src="http://localhost:3000/{{this.image}}" alt="" id="expImage"> 
@@ -94,14 +94,15 @@
         </div>
         <p>Our Featured Rooms</p>
         <div id="featured_rooms">
-        {{#each feature_rooms}}
+        {{#each data}}
 
             <article class="room">
                 
-               <img src="http://localhost:3000/{{this.image}}" alt="" id="roomImage"> 
-                <p id="roomTitle">{{this.name}}</p>
-                <p id="roomDescription">{{this.guests}} guests - {{this.bedroom}} bedroom - {{this.number_of_beds}} bed - {{this.bathroom}} bathroom - {{this.kitchen}} - {{this.wifi}} - {{this.parking}}</p>
+               <img src="/uploads/{{this.roomimage}}" alt="" id="roomImage"> 
+                <p id="roomTitle">{{this.title}}</p>
+                <p id="roomDescription">{{this.description}}</p>
                 <p id="roomPrice">Price:<strong>{{this.price}}</strong> per night</p></strong>
+                <p>Location:{{this.location}}</p>
  
                 
             </article>

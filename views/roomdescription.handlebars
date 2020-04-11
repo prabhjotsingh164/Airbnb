@@ -23,8 +23,8 @@
 
             <label>To:-</label><br>
             <input type="date" id="bday" name="to">
-          {{!-- <p>Upload Room Image:-</p>
-          <input type="file" name="roomimage" id="roomimage" value="{{this.roomimage}}"> --}}
+
+          <input type="hidden" name="roomimage" value="{{this.roomimage}}">
           <img src="/uploads/{{this.roomimage}}" alt="" id="roomImage">
           <button type="submit">Book Room</button>
           

@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const roomModel = require("../models/addroom");
+const froomModel = require("../models/feature_rooms");
+const expModel = require("../models/exp");
+
 const path = require("path");
 const isAuth  = require("../middleware/auth");
 const isAuthor  = require("../middleware/author");
@@ -9,10 +12,29 @@ const isAuthor  = require("../middleware/author");
 
 router.get("/add",(req,res)=>{
     res.render("addroom",{
-        title:"addroom",
-        headinginfo: "addroom",
+        title:"Add Room",
+        headinginfo: "Room Title",
+        action:"add"
         
     })
+});
+
+router.get("/addf",(req,res)=>{
+  res.render("addfroom",{
+      title:"Add Featured Room",
+      headinginfo: "Room Title",
+      action:"addf"
+      
+  })
+});
+
+router.get("/addexp",(req,res)=>{
+  res.render("exp",{
+      title:"Add Experience",
+      headinginfo: "Experience Title",
+      action:"addexp"
+      
+  })
 });
 
 
@@ -157,6 +179,139 @@ router.delete("/delete/:id",(req,res)=>{
 
   
 });
+
+
+router.post("/addf",(req,res)=>{
+  const errors= [];
+  if(req.body.title=="")
+{
+  errors.push("Sorry, you must enter a title");
+
+}
+
+if(req.body.description=="")
+{
+  errors.push("Sorry, you must enter the description of room")
+}
+if(req.body.price=="")
+{
+    errors.push("enter the price per night")
+}
+if(req.body.location=="")
+{
+  errors.push("Sorry, you must enter the location of room");
+
+}
+
+
+if(errors.length > 0)
+{
+  res.render("addfroom",{
+    messages : errors
+  })
+}
+else
+{
+  const newRoom = {
+    title: req.body.title,
+    description:req.body.description,
+    price:req.body.price,
+    location:req.body.location
+
+
+  }
+  const room = new froomModel(newRoom);
+    room.save()
+ 
+  .then((room) => {
+    req.files.roomimage.name =`pro_pic${room._id}${path.parse(req.files.roomimage.name).ext}` ;
+   req.files.roomimage.mv(`public/uploads/${req.files.roomimage.name}`)
+   .then(()=>{
+       froomModel.updateOne({_id:room._id},{
+           roomimage: req.files.roomimage.name
+       })
+       .then(()=>{
+          res.redirect("/admin/adm");
+       })
+      
+   })
+    })
+  .catch((err)=>{
+      console.log(`Error ${err}`);
+  })
+    
+  
+}
+  
+
+});
+
+router.post("/addexp",(req,res)=>{
+  const errors= [];
+  if(req.body.title=="")
+{
+  errors.push("Sorry, you must enter a title");
+
+}
+
+if(req.body.description=="")
+{
+  errors.push("Sorry, you must enter the description of room")
+}
+if(req.body.price=="")
+{
+    errors.push("enter the price per night")
+}
+if(req.body.location=="")
+{
+  errors.push("Sorry, you must enter the location of room");
+
+}
+
+
+if(errors.length > 0)
+{
+  res.render("exp",{
+    messages : errors
+  })
+}
+else
+{
+  const newExp = {
+    title: req.body.title,
+    place:req.body.place,
+    rating:req.body.rating,
+    nov:req.body.nov
+
+
+  }
+  const exp = new expModel(newExp);
+    exp.save()
+ 
+  .then((exp) => {
+    req.files.expimage.name =`pro_pic${exp._id}${path.parse(req.files.expimage.name).ext}` ;
+   req.files.expimage.mv(`public/uploads/${req.files.expimage.name}`)
+   .then(()=>{
+       expModel.updateOne({_id:exp._id},{
+           expimage: req.files.expimage.name
+       })
+       .then(()=>{
+          res.redirect("/admin/adm");
+       })
+      
+   })
+    })
+  .catch((err)=>{
+      console.log(`Error ${err}`);
+  })
+    
+  
+}
+  
+
+});
+
+
 
 
 

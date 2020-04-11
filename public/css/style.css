@@ -501,7 +501,7 @@ input[type=text], input[type=password] {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
     grid-gap:1em;
-    grid-template-rows: 30em 30em;
+    grid-template-rows: auto;
     resize:horizontal;
     object-fit: contain;
 }
@@ -522,7 +522,7 @@ input[type=text], input[type=password] {
     height: auto;
     text-align: center;
   }
-  
+ 
 
   .room p
   {
@@ -568,6 +568,7 @@ input[type=text], input[type=password] {
     background: #ff5a60;
     color: white;
     border-radius: 1em;
+    margin-top: 2em;
     
 
   }

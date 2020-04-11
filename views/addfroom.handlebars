@@ -1,0 +1,31 @@
+<h1>Add Room</h1>
+{{#each messages}}
+
+    <div class="errors">{{this}}</div>
+
+{{/each}}
+
+
+      <form method="POST" action="/admin/addf" enctype="multipart/form-data">
+       
+
+        <div class="container">
+          
+          <input type="text" placeholder="Room Title" name="title">
+
+          <input type="text" placeholder="Description" name="description">
+
+          <input type="text" placeholder="Price Per Night" name="price">
+
+          <input type="text" placeholder="Location" name="location">
+            
+          <p>Upload Room Image:-</p>
+          <input type="file" name="roomimage" id="roomimage">
+          
+          <button type="submit">Add Room</button>
+          
+        </div>
+
+       
+      </form>
+    

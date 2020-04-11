@@ -45,9 +45,11 @@ const bookedroom = new Schema({
     type:Date,
     required:true
   },
+  
   roomimage:
   {
-      type:String
+      type:String,
+      required:true
   }
   
 });

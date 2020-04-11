@@ -111,19 +111,23 @@ router.get("/add/:id",(req,res)=>{
 
   router.post("/book/:id",(req,res)=>{
   
-    const newBookedRoom = {
-        userId:req.session.userInfo._id,
-      roomId:req.params.id,
-        title: req.body.title,
-      description:req.body.description,
-      price:req.body.price,
-      location:req.body.location,
-      roomimgae:req.body.roomimage,
-      from:req.body.from,
-      to:req.body.to
+    const newBookedRoom = 
+    {
+        
+    userId:req.session.userInfo._id,
+    roomId:req.params.id,
+    title: req.body.title,
+    description:req.body.description,
+    price:req.body.price,
+    location:req.body.location,
+      
+    from:req.body.from,
+    to:req.body.to,
+    roomimage : req.body.roomimage
   
 
     }
+    //console.log("roomimage Path"+req.body.roomimage);
     const user = new broomModel(newBookedRoom);
       user.save()
     .then(()=>
@@ -137,6 +141,18 @@ router.get("/add/:id",(req,res)=>{
     
  
 });
+router.delete("/delete/:id",(req,res)=>{
+
+    broomModel.deleteOne({_id:req.params.id})
+    .then(()=>{
+     res.redirect("/login/brooms");   
+    })
+    .catch(err=>console.log(`Error happened when deleting the database: ${err}`));
+  
+  
+    
+  });
+  
 
 
 

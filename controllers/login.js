@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userModel = require("../models/signup");
 const roomModel = require("../models/addroom");
+const broomModel =require("../models/bookroom");
 const bcrypt = require("bcryptjs");
 const isAuth  = require("../middleware/auth");
 const isAuthor  = require("../middleware/author");
@@ -70,6 +71,33 @@ router.get("/welcome",isAuth,(req,res)=>{
       
   })
 });
+
+router.get("/brooms",(req,res)=>{
+  broomModel.find({userId:req.session.userInfo._id})
+  .then((rooms)=>{
+    const filteredRoom = rooms.map(room=>{
+
+      return{
+        id:room._id ,        
+         title:room.title,
+         description:room.description,
+         price: room.price,
+         location: room.location,
+         roomimage: room.roomimage,
+         from:  room.from,
+         to:  room.to
+      }
+
+  });
+  res.render("bookedrooms",{
+    data:filteredRoom
+
+});
+  })
+  .catch(err=>console.log(`Error happened when pulling from the database: ${err}`));
+  
+});
+
 
 
 router.get("/out",(req,res)=>

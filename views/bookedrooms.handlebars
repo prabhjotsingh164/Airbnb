@@ -1,3 +1,4 @@
+<h1>Booked rooms</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="admin_title">Welcome Admin</h1>
-<ul class="admin_op">
-    <li><a href="/admin/add">Add room</a></li><br>
-    <li><a href="/admin/addf">Add Featured Rooms</a></li>
-</ul>
+    
   <div id="rooms">  
 {{#each data}}
     
@@ -21,13 +18,17 @@
         <p id="roomDescription">{{this.description}} </p>
         <p id="roomPrice">Price:<strong>{{this.price}}</strong> per night</p></strong>
         <p id="roomLocation">Location:{{this.location}}</p>
-        <a href="/admin/edit/{{this.id}}" class="update">Update Room</a>
-        <a href="/admin/delete/{{this.id}}?method=DELETE" class="delete">Delete Room</a>
+        <p>From:{{this.from}}</p>
+        <p>To:{{this.to}}</p>
+        <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="delete">Delete Room</a>
     
 </article>
+{{else}}
+<h1>No Booked Rooms</h1>
 
 {{/each}}
 </div>
+
     
 </body>
 </html>
