@@ -83,7 +83,7 @@
             {{#each data1}}
 
             <article class="exp">
-    <img src="http://localhost:3000/{{this.image}}" alt="" id="expImage"> 
+    <img src="../images/{{this.image}}" alt="" id="expImage"> 
     <p id="expTitle">{{this.name}}</p>
     <p id="expDescription">{{this.place}}</p>
     <p id="expPrice">*<strong>{{this.rating}}</strong>({{this.number_of_reviews}})</p></strong> 
@@ -98,7 +98,7 @@
 
             <article class="room">
                 
-               <img src="/uploads/{{this.roomimage}}" alt="" id="roomImage"> 
+               <img src="../uploads/{{this.roomimage}}" alt="" id="roomImage"> 
                 <p id="roomTitle">{{this.title}}</p>
                 <p id="roomDescription">{{this.description}}</p>
                 <p id="roomPrice">Price:<strong>{{this.price}}</strong> per night</p></strong>
