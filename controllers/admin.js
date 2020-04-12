@@ -82,7 +82,7 @@ router.post("/add",(req,res)=>{
    
     .then((room) => {
       req.files.roomimage.name =`pro_pic${room._id}${path.parse(req.files.roomimage.name).ext}` ;
-     req.files.roomimage.mv(`public/uploads/${req.files.roomimage.name}`)
+     req.files.roomimage.mv(`public/images/${req.files.roomimage.name}`)
      .then(()=>{
          roomModel.updateOne({_id:room._id},{
              roomimage: req.files.roomimage.name
